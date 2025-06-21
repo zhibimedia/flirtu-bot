@@ -5,6 +5,9 @@ from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext, Me
 import os
 from dotenv import load_dotenv
 
+from keep_alive import keep_alive
+
+
 # Load environment variables
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -104,6 +107,9 @@ def match(user1, user2):
     )
 
 def main():
+
+    keep_alive() 
+    
     app = ApplicationBuilder().token(TOKEN).build()
 
     conv_handler = ConversationHandler(
