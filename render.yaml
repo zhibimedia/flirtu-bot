@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: flirtu-bot
+    env: python
+    repo: https://github.com/zhibimedia/flirtu-bot
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python telegram_flirtu_bot.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
